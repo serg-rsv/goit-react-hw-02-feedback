@@ -1,3 +1,9 @@
+import styled from 'styled-components';
+
+const StatField = styled.p`
+  margin-bottom: 8px;
+`;
+
 export const Statistics = ({
   good,
   neutral,
@@ -7,11 +13,11 @@ export const Statistics = ({
 }) => {
   return (
     <>
-      <p>Good: {good}</p>
-      <p>Neutral:{neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>Total: {total}</p>
-      <p>Positive feedback:{positivePercentage}%</p>
+      <StatField>Good: {good}</StatField>
+      <StatField>Neutral:{neutral}</StatField>
+      <StatField>Bad: {bad}</StatField>
+      <StatField>Total: {total}</StatField>
+      <StatField>Positive feedback:{positivePercentage}%</StatField>
     </>
   );
 };
