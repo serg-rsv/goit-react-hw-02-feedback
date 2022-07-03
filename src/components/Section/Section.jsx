@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -18,4 +19,9 @@ export const Section = ({ title, children }) => {
       {children}
     </Container>
   );
+};
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
 };

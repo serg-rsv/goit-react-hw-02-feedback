@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Fragment } from 'react';
 import styled from 'styled-components';
 
@@ -41,4 +42,9 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       })}
     </Fragment>
   );
+};
+
+FeedbackOptions.propTypes = {
+  options: PropTypes.object.isRequired,
+  onLeaveFeedback: PropTypes.func.isRequired,
 };

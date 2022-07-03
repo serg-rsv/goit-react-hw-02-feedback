@@ -1,7 +1,10 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StatField = styled.p`
-  margin-bottom: 8px;
+  :not(:last-child) {
+    margin-bottom: 8px;
+  }
 `;
 
 export const Statistics = ({
@@ -20,4 +23,12 @@ export const Statistics = ({
       <StatField>Positive feedback: {positivePercentage}%</StatField>
     </>
   );
+};
+
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  positivePercentage: PropTypes.number.isRequired,
 };

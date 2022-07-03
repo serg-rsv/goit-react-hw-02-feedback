@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Message = styled.p`
@@ -5,3 +6,7 @@ const Message = styled.p`
   color: gray;
 `;
 export const Notification = ({ message }) => <Message>{message}</Message>;
+
+Notification.propTypes = {
+  message: PropTypes.string.isRequired,
+};
