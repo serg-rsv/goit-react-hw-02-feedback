@@ -1,4 +1,8 @@
 import { Component } from 'react';
+import { Section } from './Section/Section';
+import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { Statistics } from './Statistics/Statistics';
+import { Notification } from './Notification/Notification';
 
 export class App extends Component {
   state = {
@@ -25,43 +29,33 @@ export class App extends Component {
   }
 
   render() {
+    const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback();
-    const positiveFeedbacks = Math.round(
+    const positivePercentage = Math.round(
       this.countPositiveFeedbackPercentage()
     );
 
     return (
       <>
-        <h2>Please leave feedback</h2>
-
-        {Object.keys(this.state).map(key => {
-          return (
-            <button
-              key={key}
-              type="button"
-              onClick={() => this.handleBtnClick(key)}
-            >
-              {key}
-            </button>
-          );
-        })}
-
-        <h2>Statistics</h2>
-        {total === 0 ? (
-          <p>There is no feedback</p>
-        ) : (
-          <>
-            {Object.entries(this.state).map(entrie => {
-              return (
-                <p key={entrie[0]}>
-                  {entrie[0]}: {entrie[1]}
-                </p>
-              );
-            })}
-            ;<p>Total: {total}</p>
-            <p>Positive feedback:{positiveFeedbacks}%</p>
-          </>
-        )}
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={this.state}
+            onLeaveFeedback={this.handleBtnClick}
+          />
+        </Section>
+        <Section title="Statistics">
+          {total === 0 ? (
+            <Notification message="There is no feedback" />
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={total}
+              positivePercentage={positivePercentage}
+            />
+          )}
+        </Section>
       </>
     );
   }
