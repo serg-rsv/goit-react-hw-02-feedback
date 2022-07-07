@@ -35,13 +35,14 @@ export class App extends Component {
     const positivePercentage = Math.round(
       this.countPositiveFeedbackPercentage()
     );
+    const options = Object.keys(this.state);
 
     return (
       <>
         <GlobalStyle />
         <Section title="Please leave feedback">
           <FeedbackOptions
-            options={this.state}
+            options={options}
             onLeaveFeedback={this.handleBtnClick}
           />
         </Section>

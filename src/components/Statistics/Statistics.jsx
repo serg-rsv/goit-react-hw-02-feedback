@@ -1,11 +1,5 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-
-const StatField = styled.p`
-  :not(:last-child) {
-    margin-bottom: 8px;
-  }
-`;
+import { StatField } from './StatField.styled';
 
 export const Statistics = ({
   good,
