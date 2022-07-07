@@ -3,7 +3,6 @@ import { Fragment } from 'react';
 import { Button } from './Button.styled';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
-  console.log(options);
   return (
     <Fragment>
       {options.map(key => {
